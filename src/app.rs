@@ -11,9 +11,7 @@ use tracing::{debug, info};
 
 use crate::{
     action::Action,
-    components::{
-        project_list::ProjectList, software_list::SoftwareList, utils::Focusable, Component,
-    },
+    components::*,
     config::Config,
     tui::{Event, Tui},
 };
@@ -30,6 +28,7 @@ pub struct App {
     projects: ProjectList,
     has_focus: usize,
     focusable_max: usize,
+    main_area: Box<dyn Component>,
 }
 
 #[derive(Default, Debug, Copy, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -53,6 +52,7 @@ impl App {
             projects: ProjectList::default(),
             has_focus: 0,
             focusable_max: 2, // Software and Projects
+            main_area: Box::new(Fishtank::default()),
         })
     }
 
@@ -234,7 +234,10 @@ impl App {
                 .draw(frame, software_area)
                 .expect("Failed to draw software list");
 
-            frame.render_widget(Paragraph::new("item"), item_area);
+            // frame.render_widget(Paragraph::new("item"), item_area);
+            self.main_area
+                .draw(frame, item_area)
+                .expect("Failed to draw main area");
 
             /*
             for component in self.components.iter_mut() {
