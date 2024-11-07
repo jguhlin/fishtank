@@ -217,7 +217,7 @@ impl App {
             // Add key combos to the footer
             // Up/Down - Navigate, Enter - Select, q - Quit, Tab - Next Pane
 
-            let bottom_footer = Paragraph::new("Author: Joseph Guhlin -- [q] Quit | [Tab] Next Pane | [Up/Down] Navigate | [Enter] Select");
+            let bottom_footer = Paragraph::new("Author: Joseph Guhlin -- [q] Quit | [Tab] Next Pane | [Up/Down] Navigate | [Enter] Select | [`] Configuration");
             frame.render_widget(bottom_footer, footer_area);
 
 

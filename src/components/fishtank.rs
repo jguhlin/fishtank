@@ -1,8 +1,8 @@
 use std::{borrow::Cow, time::Instant};
 
+use color_eyre::Result;
 use rand::prelude::*;
 use rand_xoshiro::Xoshiro256PlusPlus;
-use color_eyre::Result;
 use ratatui::{
     layout::{Alignment, Constraint, Layout, Margin, Rect},
     style::{Color, Modifier, Style, Stylize},
@@ -17,8 +17,7 @@ use super::Component;
 use crate::action::Action;
 use crate::components::utils::*;
 
-pub const FISH1: &str = 
-r#"
+pub const FISH1: &str = r#"
 |\   \\\\__     o
 | \_/    o \    o 
 > _   (( <_  oo  
@@ -75,13 +74,16 @@ impl Component for Fishtank {
     }
 
     fn draw(&mut self, frame: &mut Frame, area: Rect) -> Result<()> {
-        
         // Put a border around the fish tank
         let block = Block::default()
             .title("Fish Tank")
             .borders(Borders::ALL)
             .border_style(Style::default().fg(Color::White))
-            .title_style(Style::default().fg(Color::White).add_modifier(Modifier::BOLD));
+            .title_style(
+                Style::default()
+                    .fg(Color::White)
+                    .add_modifier(Modifier::BOLD),
+            );
 
         let fish = FISH1;
 
@@ -106,8 +108,12 @@ impl Component for Fishtank {
         }
 
         // Keep the fish in the tank
-        fish_x = fish_x.max(self.margin.horizontal as i16).min(area.width as i16 - self.margin.horizontal as i16);
-        fish_y = fish_y.max(self.margin.vertical as i16).min(area.height as i16 - self.margin.vertical as i16);
+        fish_x = fish_x
+            .max(self.margin.horizontal as i16)
+            .min(area.width as i16 - self.margin.horizontal as i16);
+        fish_y = fish_y
+            .max(self.margin.vertical as i16)
+            .min(area.height as i16 - self.margin.vertical as i16);
 
         // Update margin
         self.margin = Margin {

@@ -13,8 +13,9 @@ pub mod project_list;
 pub mod software_list;
 
 // Main area components
-pub mod project_editor;
 pub mod fishtank;
+pub mod project_editor;
+pub mod settings;
 
 pub mod utils;
 
@@ -23,7 +24,7 @@ pub use software_list::SoftwareList;
 // pub use project_editor::ProjectEditor;
 pub use fishtank::Fishtank;
 pub use utils::*;
-
+pub use settings::Settings;
 
 /// `Component` is a trait that represents a visual and interactive element of the user interface.
 ///

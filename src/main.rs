@@ -9,10 +9,10 @@ mod app;
 mod cli;
 mod components;
 mod config;
+mod data;
 mod errors;
 mod logging;
 mod tui;
-mod data;
 
 #[tokio::main]
 async fn main() -> Result<()> {

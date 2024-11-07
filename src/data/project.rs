@@ -57,7 +57,7 @@ pub struct BasecallLog {
     pub config: String,
     pub basecall_run: BasecallRun,
     pub command: Vec<String>,
-    pub results: Option<BasecallResults>
+    pub results: Option<BasecallResults>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -82,5 +82,5 @@ pub struct BasecallResults {
     pub min_qscore: f64,
     pub max_qscore: f64,
     pub n50: u64,
-    pub n_bases: u64,    
+    pub n_bases: u64,
 }
