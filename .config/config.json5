@@ -9,6 +9,7 @@
       "<a>": "AddProject", // Add a new project
       "<r>": "ArchiveProject", // Archive the current project
       "<t>": "ToggleArchivedProjectsDisplay", // Show archived projects
+      "<`>": "ToggleSettingsDisplay", // Show the settings
     },
   }
 }

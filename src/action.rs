@@ -16,4 +16,5 @@ pub enum Action {
     AddProject,
     ArchiveProject,
     ToggleArchivedProjectsDisplay,
+    ToggleSettingsDisplay,
 }

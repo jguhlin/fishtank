@@ -74,17 +74,16 @@ impl Component for ProjectList {
                 Span::styled(" [", Style::default()),
                 Span::styled("a", Style::default().fg(Color::Yellow)),
                 Span::styled("] Add", Style::default()),
-
                 // r archive
                 Span::styled(" [", Style::default()),
                 Span::styled("r", Style::default().fg(Color::Yellow)),
                 Span::styled("] Archive", Style::default()),
-
                 // t show archived
                 Span::styled(" [", Style::default()),
                 Span::styled("t", Style::default().fg(Color::Yellow)),
                 Span::styled("] Show Archived", Style::default()),
-            ]).centered()
+            ])
+            .centered()
         } else {
             Line::from(vec![])
         };
@@ -95,8 +94,7 @@ impl Component for ProjectList {
                     .border_style(focus_border_style(self.has_focus))
                     .borders(Borders::ALL)
                     .title("Projects")
-                    .title_bottom(title_bottom)
-                    ,
+                    .title_bottom(title_bottom),
             )
             .style(Style::default().fg(Color::White))
             .highlight_style(Style::default().add_modifier(Modifier::BOLD))
